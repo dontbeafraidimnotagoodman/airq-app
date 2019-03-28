@@ -1,0 +1,17 @@
+.Title{
+    margin: auto;
+    font-size: 50px;
+    color: #61dafb;
+    text-align: center;
+    animation: slide-in 3s forwards;
+    background-color: coral;
+}
+
+@keyframes slide-in {
+    from {
+        margin-left: -30%;
+      }
+      to {
+        margin-left: 0;
+      }
+}

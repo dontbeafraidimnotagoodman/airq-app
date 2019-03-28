@@ -1,0 +1,13 @@
+.airqplot{
+    text-align: center;
+    float: center;
+    vertical-align: middle;
+    display: -webkit-flex;
+    flex-direction: row;
+}
+.airqplot-1{
+    flex-grow: 5;
+}
+.airqplot-2{
+    flex-grow: 5;
+}
