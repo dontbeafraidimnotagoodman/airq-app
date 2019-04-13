@@ -6,7 +6,17 @@ import "react-datepicker/dist/react-datepicker.css";
 class Form extends React.Component{
     state={
         startDate:new Date(),
+        op_tag:[],
     };
+    componentDidMount(){
+        let tag=[];
+        for(let i=0;i<this.props.locations.length;i++){
+            tag.push(<option value={this.props.locations[i]}>{this.props.locations[i]}</option>);
+        }
+        this.setState({
+            op_tag:tag,
+        })
+    }
     handleChange(date){
         this.setState({
             startDate: date

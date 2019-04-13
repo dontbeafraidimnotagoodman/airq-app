@@ -5,7 +5,7 @@ import AQ from './components/AQ';
 import Title from './components/Title';
 import Airqplot from './components/Airqplot';
 import moment from 'moment';
-
+import CountryCity from './components/countrycity';
 
 
 class App extends React.Component {
@@ -30,8 +30,11 @@ class App extends React.Component {
     pltdata_no2:undefined,
     pltdata_pm25:undefined,
     pltdata_time:undefined,
+    loc:undefined,
   }
-  
+  componentDidMount(){
+
+  }
   handleDayChange(day){
     const true_day=moment(day,'YYYY/MM/DD',false).startOf('day').format('YYYY-MM-DD');
     let week_ago=moment(true_day).subtract(7, 'days');
@@ -131,7 +134,7 @@ class App extends React.Component {
       <div>
           <div>
           <Title />
-          <Form getAirQ={this.getAirQ} handleDayChange={this.handleDayChange.bind(this)}/>
+          <Form getAirQ={this.getAirQ} handleDayChange={this.handleDayChange.bind(this)} locations={this.state.loc}/>
           <div className="airq-display">
             <div className="text-dis">
               <AQ city={this.state.city}

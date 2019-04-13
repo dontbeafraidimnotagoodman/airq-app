@@ -5,7 +5,7 @@ class Title extends React.Component{
     render(){
         return(
             <div className="Title">
-                Air Quality in Wuhan
+                Air Quality Check
             </div>
         )
     }
