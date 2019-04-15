@@ -9,6 +9,7 @@ class Form extends React.Component{
         op_tag:[],
     };
     componentDidMount(){
+/*
         let tag=[];
         for(let i=0;i<this.props.locations.length;i++){
             tag.push(<option value={this.props.locations[i]}>{this.props.locations[i]}</option>);
@@ -16,6 +17,7 @@ class Form extends React.Component{
         this.setState({
             op_tag:tag,
         })
+*/
     }
     handleChange(date){
         this.setState({

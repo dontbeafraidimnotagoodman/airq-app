@@ -2,35 +2,55 @@ import React from 'react'
 
 class CountryCity extends React.Component{
     state={
-        country:[],
-        city:[],
+        city:undefined,
     }
-    async fetchcountry(){
-        const getcountry=await fetch(`https://api.openaq.org/v1/countries`);
-        const countrydata=getcountry.json();
-        let temp_country=[]
-        for(let i=0;i<countrydata.results.length;i++){
-            temp_country.push(<option value={countrydata.results[i].code}>{countrydata.results[i].name}</option>);
-        }
-        this.setState({
-            country:temp_country
-        })
-    }
+
     componentDidMount(){
 
     }
     render(){
         return(
             <div>
-                <form onSubmit={this.props.handleCountryCity}>
-                    <select type="text" name="country">
-                        {this.state.country}
-                    </select>
-                    <select type="text" name="city">
-                        {this.state.city}
-                    </select>
-                </form>
-                
+                    <select type="text" name="country" onChange={this.props.handleCountryCity}>
+                        <option value="AD">Andorra</option>
+                        <option value="AR">Argentina</option>
+                        <option value="BE">Belgium</option>
+                        <option value="BR">Brazil</option>
+                        <option value="CA">Canada</option>
+                        <option value="CL">Chile</option>
+                        <option value="CN">China</option>
+                        <option value="CO">Colombia</option>
+                        <option value="HR">Croatia</option>
+                        <option value="DK">Denmark</option>
+                        <option value="FI">Finland</option>
+                        <option value="FR">France</option>
+                        <option value="DE">German</option>
+                        <option value="HK">Hong Kong</option>
+                        <option value="IN">India</option>
+                        <option value="IQ">Iraq</option>
+                        <option value="IE">Ireland</option>
+                        <option value="IL">Israel</option>
+                        <option value="IT">Italy</option>
+                        <option value="LV">Latvia</option>
+                        <option value="LU">Luxembourg</option>
+                        <option value="MX">Mexico</option>
+                        <option value="MN">Mongolia</option>
+                        <option value="NL">Netherlands</option>
+                        <option value="NG">Nigeria</option>
+                        <option value="NO">Norway</option>
+                        <option value="PH">Philipines</option>
+                        <option value="PL">Poland</option>
+                        <option value="RU">Russia Federation</option>
+                        <option value="SG">Singapore</option>
+                        <option value="ZA">South Africa</option>
+                        <option value="ES">Spain</option>
+                        <option value="SE">Sweden</option>
+                        <option value="TW">Taiwan, Province of China</option>
+                        <option value="TH">Thailand</option>
+                        <option value="GB">United Kindom</option>
+                        <option value="US">United States</option>
+                        <option value="VN">Viet Nam</option>
+                    </select>              
             </div>
         )
     }

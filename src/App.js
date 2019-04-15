@@ -6,6 +6,7 @@ import Title from './components/Title';
 import Airqplot from './components/Airqplot';
 import moment from 'moment';
 import CountryCity from './components/countrycity';
+import CityForm from './components/CityForm';
 
 
 class App extends React.Component {
@@ -31,10 +32,26 @@ class App extends React.Component {
     pltdata_pm25:undefined,
     pltdata_time:undefined,
     loc:undefined,
+    choosecity:undefined,
+    country:undefined,
   }
-  componentDidMount(){
 
+  handleCountryCity(e){
+    e.preventDefault();
+    this.setState({
+      country:e.target.value,
+    });
+    console.log(e.target.value);
   }
+
+  handleCityForm(e){
+    e.preventDefault();
+    this.setState({
+      choosecity:e.target.cityform.value,
+    })
+    console.log(e.target.cityform.value)
+  }
+
   handleDayChange(day){
     const true_day=moment(day,'YYYY/MM/DD',false).startOf('day').format('YYYY-MM-DD');
     let week_ago=moment(true_day).subtract(7, 'days');
@@ -134,7 +151,9 @@ class App extends React.Component {
       <div>
           <div>
           <Title />
-          <Form getAirQ={this.getAirQ} handleDayChange={this.handleDayChange.bind(this)} locations={this.state.loc}/>
+          <CountryCity handleCountryCity={this.handleCountryCity.bind(this)}/>
+          {this.state.country && <CityForm handleCityForm={this.handleCityForm.bind(this)}/>}
+          {this.state.choosecity && <Form getAirQ={this.getAirQ} handleDayChange={this.handleDayChange.bind(this)}/>}
           <div className="airq-display">
             <div className="text-dis">
               <AQ city={this.state.city}
