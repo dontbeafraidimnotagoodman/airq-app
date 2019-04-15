@@ -44,8 +44,13 @@ class App extends React.Component {
     console.log(e.target.value);
   }
 
-  handleCityForm(e){
+  handleCityForm=async(e)=>{
     e.preventDefault();
+    const loc_call=await fetch(`https://api.openaq.org/v1/locations?city=${e.target.cityform.value}&country=${this.state.country}`);
+    const loc_name=await loc_call.json();
+    for(let i=0;i<loc_name.results.length;i++){
+      
+    }
     this.setState({
       choosecity:e.target.cityform.value,
     })
