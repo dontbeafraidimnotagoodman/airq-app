@@ -5,9 +5,7 @@ class CityForm extends React.Component{
         return(
             <div>
                 <form onSubmit={this.props.handleCityForm}>
-                    <input type="text" placeholder="city name..." name="cityform">
-
-                    </input>
+                    <input type="text" placeholder="city name..." name="cityform" />
                     <button>Enter City Name</button>
                 </form>
             </div>

@@ -41,20 +41,24 @@ class App extends React.Component {
     this.setState({
       country:e.target.value,
     });
-    console.log(e.target.value);
   }
 
   handleCityForm=async(e)=>{
     e.preventDefault();
+    e.persist();
     const loc_call=await fetch(`https://api.openaq.org/v1/locations?city=${e.target.cityform.value}&country=${this.state.country}`);
     const loc_name=await loc_call.json();
+    let temp_tag=[];
     for(let i=0;i<loc_name.results.length;i++){
-      
+      temp_tag.push(loc_name.results[i].location);
     }
+    console.log(e.target.cityform.value);
+    let cityname=e.target.cityform.value;
     this.setState({
-      choosecity:e.target.cityform.value,
+      choosecity:cityname,
+      loc:temp_tag,
     })
-    console.log(e.target.cityform.value)
+    
   }
 
   handleDayChange(day){
@@ -158,7 +162,7 @@ class App extends React.Component {
           <Title />
           <CountryCity handleCountryCity={this.handleCountryCity.bind(this)}/>
           {this.state.country && <CityForm handleCityForm={this.handleCityForm.bind(this)}/>}
-          {this.state.choosecity && <Form getAirQ={this.getAirQ} handleDayChange={this.handleDayChange.bind(this)}/>}
+          {this.state.choosecity && <Form getAirQ={this.getAirQ} handleDayChange={this.handleDayChange.bind(this)} locations={this.state.loc}/>}
           <div className="airq-display">
             <div className="text-dis">
               <AQ city={this.state.city}
