@@ -46,7 +46,8 @@ class App extends React.Component {
   handleCityForm=async(e)=>{
     e.preventDefault();
     e.persist();
-    const loc_call=await fetch(`https://api.openaq.org/v1/locations?city=${e.target.cityform.value}&country=${this.state.country}`);
+    const ct=e.target.cityform.value;
+    const loc_call=await fetch(`https://api.openaq.org/v1/locations?city=${ct}&country=${this.state.country}`);
     const loc_name=await loc_call.json();
     let temp_tag=[];
     for(let i=0;i<loc_name.results.length;i++){
@@ -72,8 +73,8 @@ class App extends React.Component {
   }
   getAirQ = async(e)=>{
     e.preventDefault();
-    const this_city="武汉市";
-    const this_country="CN";
+    const this_city=this.state.choosecity;
+    const this_country=this.state.country;
     const location=e.target.elements.location.value;
     console.log(this.state.test_time);
     const api_call=await fetch(`https://api.openaq.org/v1/measurements?city=${this_city}&country=${this_country}&location=${location}&date_from=${this.state.test_time}&date_to=${this.state.test_time}`);

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './countrycitycss.css';
 
 class CountryCity extends React.Component{
     state={
@@ -10,7 +11,7 @@ class CountryCity extends React.Component{
     }
     render(){
         return(
-            <div>
+            <div className="country-city-select">
                     <select type="text" name="country" onChange={this.props.handleCountryCity}>
                         <option value="AD">Andorra</option>
                         <option value="AR">Argentina</option>

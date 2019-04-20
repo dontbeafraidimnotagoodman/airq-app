@@ -20,9 +20,6 @@ class Form extends React.Component{
     componentDidMount(){
         this.createTag()
     }
-    shouldComponentUpdate(){
-        this.createTag()
-    }
     handleChange(date){
         this.setState({
             startDate: date
@@ -39,7 +36,7 @@ class Form extends React.Component{
                         <div id="inner-form">
                             <div></div>
                             <div> 
-                                <select type="text" name="location">
+                                <select type="text" name="location" selected={this.props.locations[0]}>
                                     {this.state.op_tag}
                                 </select>
                                 <DatePicker 

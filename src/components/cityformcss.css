@@ -1,0 +1,39 @@
+.city-form{
+    background-color:coral;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    float:center;
+}
+.city-form:nth-child(1){
+    flex:auto;
+}
+.city-form:nth-child(2){
+    flex:auto;
+
+}
+.city-form:nth-child(3){
+    flex:auto;
+}
+input{
+    text-align: center;
+    font-size:15px;
+    flex:auto;
+    top:10px;
+}
+
+button{
+    top:10px;
+    border-left-width: 0px;
+    border-right-width:0px;
+    border-top-width: 0px;
+    border-bottom-color: rgb(113, 189, 14);
+    border-bottom: 10px;
+}
+button:hover{
+    background-color: rgb(72, 175, 223);
+}
+input:focus{
+    font-size:30px;
+}
