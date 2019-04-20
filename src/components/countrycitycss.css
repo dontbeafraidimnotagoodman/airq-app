@@ -1,8 +1,11 @@
 .country-city-select{
-    display: block;
     background-color: coral;
+    display:-webkit-flex;
     display:flexbox;
-    margin:auto;
-
+    justify-content: center;
+    align-items: center;
+}
+select{
+    width:340px;
 }
 

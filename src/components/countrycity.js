@@ -12,7 +12,8 @@ class CountryCity extends React.Component{
     render(){
         return(
             <div className="country-city-select">
-                    <select type="text" name="country" onChange={this.props.handleCountryCity}>
+                <div></div>
+                <div><select type="text" name="country" onChange={this.props.handleCountryCity}>
                         <option value="AD">Andorra</option>
                         <option value="AR">Argentina</option>
                         <option value="BE">Belgium</option>
@@ -51,7 +52,8 @@ class CountryCity extends React.Component{
                         <option value="GB">United Kindom</option>
                         <option value="US">United States</option>
                         <option value="VN">Viet Nam</option>
-                    </select>              
+                    </select> </div>
+                <div></div>          
             </div>
         )
     }

@@ -1,5 +1,6 @@
 .city-form{
     background-color:coral;
+    display:-webkit-flex;
     display: flexbox;
     justify-content: center;
     align-items: center;
